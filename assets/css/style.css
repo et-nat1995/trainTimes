@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+    width: 900px;
+}
+.header {
+    text-align: center;
+}
+.formBox {
+    border: solid 2px grey;
+    border-radius: 5px;
+}
+#grouping {
+   padding: 10px 10px 0px 10px;    
+}
+.outputBox {
+    border: solid 2px grey;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}

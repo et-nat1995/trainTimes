@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Its Trian Time!!</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- link css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
 </head>
+
 <body>
-    
+    <!-- link js -->
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container header">
+            <h1 class="display-4">Its Train Time</h1>
+            <p class="lead">Choo Choo.</p>
+        </div>
+    </div>
+    <!-- form -->
+    <div class="container">
+        <form class="formBox">
+            <div class="card-header">
+                Add Employee
+            </div>
+            <div id="grouping">
+                <div class="form-group">
+                    <label for="trianName">Train Name</label>
+                    <input type="text" class="form-control" id="trianName" placeholder="Train Express">
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination" placeholder="Location">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstTrainTime">First Start Time (HH:MM 24hr-Clock)</label>
+                        <input type="text" class="form-control" id="firstTrainTime" placeholder="23:59">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequency">Frequency (min)</label>
+                        <input type="text" class="form-control" id="frequency" placeholder="10">
+                    </div>
+                    <button type="submit" class="btn btn-secondary" id="add-user">Submit</button>
+                </div>
+        </form>
+    </div>
+    <!-- form -->
+    <!-- table -->
+    <div class="container outputBox">
+        <div class="card-header">
+            Train Schedule
+        </div>
+        <div id="grouping">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency(min)</th>
+                        <th scope="col">Next Arraival</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyRenderSpot">
+                    <tr>
+                        <td>John Smith</td>
+                        <td>CEO</td>
+                        <td>01/02/2000</td>
+                        <td>test</td>
+                        <td>50000</td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- table end -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script src="assets/js/app.js"></script>
 </body>
+
 </html>
