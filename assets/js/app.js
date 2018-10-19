@@ -32,22 +32,42 @@ $("#add-user").on("click", function (event) {
     frequencyMin = $("#frequency").val().trim();
     Destination = $("#destination").val().trim();
 
-    // gonna have to do the calculations for the time before this
+    var tFrequency = frequencyMin;
 
-    timeTillTrain = nextArriavle = 0;
+    var firstTime = firstTrain;
+
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    var tRemainder = diffTime % tFrequency;
+    console.log(tRemainder);
+
+    var tMinutesTillTrain = tFrequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
     database.ref().push({
         train: trainName,
         freq: frequencyMin,
         dest: Destination,
-        timeTill: timeTillTrain,
-        nextArr: nextArriavle
+        timeTill: tMinutesTillTrain,
+        nextArr: moment(nextTrain).format("hh:mm")
     });
 
 });
 
 database.ref().on("child_added", function (snapshot) {
-    
+
     var snap = snapshot.val();
 
     renderTableLine(snap);
